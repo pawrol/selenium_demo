@@ -12,8 +12,8 @@ def test_account_register_failed():
     driver.find_element_by_id('reg_email').send_keys("kokosz@lp.eu")
     driver.find_element_by_id('reg_password').send_keys("kokosz@lp.eu")
     driver.find_element_by_name("register").click()
-    error = " An account is already registered with your email address. Please log in.		"
-    assert error in driver.find_element_by_xpath("//ul[@class = 'woocommerce-error']//li").text
+    error_login = "An account is already registered with your email address. Please log in."
+    assert error_login in driver.find_element_by_xpath("//ul[@class = 'woocommerce-error']//li").text
 
 def test_account_register_passed():
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -27,4 +27,3 @@ def test_account_register_passed():
     assert driver.find_element_by_link_text("Logout").is_displayed()
 
 test_account_register_failed()
-test_account_register_passed()
