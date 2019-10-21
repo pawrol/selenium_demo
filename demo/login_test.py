@@ -13,7 +13,7 @@ def test_log_in_passed():
     driver.find_element_by_name("login").click()
     assert driver.find_element_by_link_text("Logout").is_displayed()
 
-def test_log_in_faild():
+def test_log_in_failed():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.maximize_window()
     driver.get("http://seleniumdemo.com/")
@@ -21,4 +21,5 @@ def test_log_in_faild():
     driver.find_element_by_id('username').send_keys("kokosz@lp.eu")
     driver.find_element_by_id('password').send_keys("123123")
     driver.find_element_by_name("login").click()
-    assert  driver.find_element_by_name("login").is_displayed()
+    assert  "ERROR: Incorrect username or password." in driver.find_element_by_xpath("//ul[@class = 'woocommerce-error']//li").text
+
