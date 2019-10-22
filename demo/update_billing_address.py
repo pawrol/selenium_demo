@@ -1,5 +1,5 @@
 import random
-
+from locators.locators import BillingAddress
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from webdriver_manager.chrome import ChromeDriverManager
@@ -11,10 +11,10 @@ def test_update_addres():
     driver.get("http://seleniumdemo.com/")
     driver.find_element_by_xpath("//li[@id = 'menu-item-22']//a").click()
     random_mail = "kokosz" + str(random.randint(1, 10000)) + "@lp.eu"
-    driver.find_element_by_id('reg_email').send_keys(random_mail)
-    driver.find_element_by_id('reg_password').send_keys("kokosz@lp.eu")
-    driver.find_element_by_name("register").click()
-    driver.find_element_by_link_text("Addresses").click()
+    driver.register_email.send_keys(random_mail)
+    driver.register_pass.send_keys("kokosz@lp.eu")
+    driver.register_button("register").click()
+    driver.addres_link.click()
     driver.find_element_by_link_text("Edit").click()
     driver.find_element_by_id("billing_first_name").send_keys("Jan")
     driver.find_element_by_id("billing_last_name").send_keys("Nowak")
@@ -30,6 +30,6 @@ def test_update_addres():
     driver.find_element_by_class_name("button").click()
     address_chanded_text = "Address changed successfully."
     print(random_mail)
-    assert address_chanded_text in driver.find_element_by_class_name("woocommerce-message").text
+    assert address_chanded_text in driver.find_element_by_xpath("//div[@class = 'woocommerce-message']").text
 
 test_update_addres()
