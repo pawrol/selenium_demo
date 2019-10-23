@@ -1,5 +1,5 @@
 from locators import locators
-
+from selenium.webdriver.support.select import Select
 
 class BillingAdressPage:
 
@@ -30,14 +30,13 @@ class BillingAdressPage:
         self.driver.find_element_by_id(self.password).send_keys(password)
         self.driver.find_element_by_name(self.loginbutton).click()
 
-    def editlink(self):
+    def open_editlink(self):
         self.driver.find_element_by_link_text(self.adress_link).click()
         self.driver.find_element_by_class_name(self.edit_link).click()
 
     def billing_addres(self, name, name2, company, addres1, addres2, postcode, city, phone):
         self.driver.find_element_by_id(self.first_name).send_keys(name)
         self.driver.find_element_by_id(self.last_name).send_keys(name2)
-        #self.driver.find_element_by_id(self.country).send_keys(country)
         self.driver.find_element_by_id(self.addres_1).send_keys(addres1)
         self.driver.find_element_by_id(self.addres_2).send_keys(addres2)
         self.driver.find_element_by_id(self.postcode).send_keys(postcode)
@@ -45,6 +44,10 @@ class BillingAdressPage:
         self.driver.find_element_by_id(self.phone).send_keys(phone)
         self.driver.find_element_by_id(self.company_name).send_keys(company)
         self.driver.find_element_by_class_name(self.save_data).click()
+
+    def billing_addres_country(self, count):
+        select = Select(self.driver.find_element_by_id(self.country))
+        select.select_by_visible_text(count)
 
     def error_msg(self):
        return self.driver.find_element_by_xpath(self.assert_text).text
