@@ -3,7 +3,9 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import pytest
 
+from pages.billing_adress_page import BillingAdressPage
 from pages.my_account_page import MyAccountPage
+
 
 
 @pytest.mark.usefixtures("setup")
@@ -22,3 +24,12 @@ class TestCreateAccount:
         random_mail = "kokosz" + str(random.randint(1, 10000)) + "@lp.eu"
         my_account_page.create_account(random_mail, random_mail)
         assert my_account_page.logout_displayed()
+
+    def test_edit_address_passed(self):
+        billing_adress_page = BillingAdressPage(self.driver)
+        billing_adress_page.open_webpage()
+        billing_adress_page.login("kokosz@lp.eu", "kokosz@lp.eu")
+        billing_adress_page.editlink()
+        billing_adress_page.billing_addres('kokosz', 'kajko', 'kajkokokosz', 'addres1', '18', '11-111', 'wawa', '111-111-111')
+        assert billing_adress_page.error_msg()
+

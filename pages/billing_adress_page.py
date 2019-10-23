@@ -5,9 +5,9 @@ class BillingAdressPage:
 
     def __init__(self, driver):
         self.driver = driver
-        self.reg_mail_input = locators.BillingAddress.register_email
-        self.reg_pass_input = locators.BillingAddress.register_pass
-        self.register_button = locators.BillingAddress.register_button
+        self.username = locators.BillingAddress.username
+        self.password = locators.BillingAddress.pass_username
+        self.loginbutton = locators.BillingAddress.login_button
         self.adress_link = locators.BillingAddress.adresses_link
         self.edit_link = locators.BillingAddress.edit_link
         self.first_name = locators.BillingAddress.billing_first_name
@@ -25,10 +25,19 @@ class BillingAdressPage:
     def open_webpage(self):
         self.driver.get("http://seleniumdemo.com/?page_id=7")
 
-    def billing_addres(self, name, name2, company, country, addres1, addres2, postcode, city, phone):
+    def login(self, login, password):
+        self.driver.find_element_by_id(self.username).send_keys(login)
+        self.driver.find_element_by_id(self.password).send_keys(password)
+        self.driver.find_element_by_name(self.loginbutton).click()
+
+    def editlink(self):
+        self.driver.find_element_by_link_text(self.adress_link).click()
+        self.driver.find_element_by_class_name(self.edit_link).click()
+
+    def billing_addres(self, name, name2, company, addres1, addres2, postcode, city, phone):
         self.driver.find_element_by_id(self.first_name).send_keys(name)
         self.driver.find_element_by_id(self.last_name).send_keys(name2)
-        self.driver.find_element_by_id(self.country).send_keys(country)
+        #self.driver.find_element_by_id(self.country).send_keys(country)
         self.driver.find_element_by_id(self.addres_1).send_keys(addres1)
         self.driver.find_element_by_id(self.addres_2).send_keys(addres2)
         self.driver.find_element_by_id(self.postcode).send_keys(postcode)

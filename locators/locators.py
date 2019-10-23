@@ -1,11 +1,10 @@
 
 class BillingAddress:
-
-    register_email = 'reg_email'
-    register_pass = 'reg_password'
-    register_button = "register"
+    username = 'username'
+    pass_username = 'password'
+    login_button = "login"
     adresses_link = "Addresses"
-    edit_link = "Edit"
+    edit_link = "edit"
     billing_first_name = "billing_first_name"
     billing_last_name = "billing_last_name"
     billing_company_name = "billing_company"
