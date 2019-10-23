@@ -1,22 +1,22 @@
 
-#class BillingAddress:
+class BillingAddress:
 
- #   register_email = 'reg_email'
-  #  register_pass = 'reg_password'
-   # register_button = "register"
-   # adresses_link = "Addresses"
-    #edit_link = find_element_by_link_text"Edit"
-   # billing_first_name = find_element_by_id("billing_first_name"
-   # billing_last_name = find_element_by_id("billing_last_name")
-   # billing_company_name = find_element_by_id("billing_company")
-   # billing_country = find_element_by_id("billing_country")
-   # billing_addres_1 = find_element_by_id("billing_address_1")
-   # billing_addres_2 = find_element_by_id("billing_address_2")
-   # billing_postcode = find_element_by_id("billing_postcode")
-   # billing_city = find_element_by_id("billing_city")
-   # billing_phone = find_element_by_id("billing_phone")
-   # save_data_button = find_element_by_class_name("button")
-   # assert_text = driver.find_element_by_xpath("//div[@class = 'woocommerce-message']")
+    register_email = 'reg_email'
+    register_pass = 'reg_password'
+    register_button = "register"
+    adresses_link = "Addresses"
+    edit_link = "Edit"
+    billing_first_name = "billing_first_name"
+    billing_last_name = "billing_last_name"
+    billing_company_name = "billing_company"
+    billing_country = "billing_country"
+    billing_addres_1 = "billing_address_1"
+    billing_addres_2 = "billing_address_2"
+    billing_postcode = "billing_postcode"
+    billing_city = "billing_city"
+    billing_phone = "billing_phone"
+    save_data_button = "button"
+    assert_text = "//div[@class = 'woocommerce-message']"
 
 
 class MyAccountPage:

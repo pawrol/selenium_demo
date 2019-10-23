@@ -12,7 +12,6 @@ class MyAccountPage:
         self.reg_password_input = locators.MyAccountPage.register_password
         self.reg_button = locators.MyAccountPage.register_button
         self.log_out_link = locators.MyAccountPage.logout_link
-        #self.addres_link = locators.MyAccountPage.addres_link
         self.assert_text = locators.MyAccountPage.assert_text_error
 
     def open_webpage(self):
